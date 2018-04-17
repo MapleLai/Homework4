@@ -7,3 +7,20 @@
 ![Alt text](/path/to/img.jpg)
 + 游戏结束界面
 ![Alt text](/path/to/img.jpg)
+# 代码
++ Disk类  
+保存飞碟的基本信息
+<pre>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace myGame{
+	public class Disk : MonoBehaviour {
+		public Vector3 size;
+		public Color color;
+		public float speed;
+		public Vector3 direction;
+	}
+}</pre>
++ DiskFactory类  
+管理飞行中和闲置中的飞碟的，当场记
