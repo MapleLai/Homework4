@@ -1,5 +1,5 @@
 # 飞碟游戏规则介绍
-飞碟有3种，分值由低到高为白、灰、黑，分值越高飞行速度越快。游戏一共有5轮，每轮射出10个飞碟，随着轮数的增加，3种飞碟所占的比例将会改变，当第5轮的10个飞碟全部击毁或飞出视界，游戏结束。
+飞碟从左下角往右上角飞行，角度有差异，一共有3种，分值由低到高为白、灰、黑，分值越高飞行速度越快。游戏一共有5轮，每轮射出10个飞碟，随着轮数的增加，3种飞碟所占的比例将会改变，当第5轮的10个飞碟全部击毁或飞出视界，游戏结束。
 # 游戏界面
 + 游戏开始界面
 ![开始](https://raw.githubusercontent.com/MapleLai/Homework4/master/Screenshot/%E5%BC%80%E5%A7%8B.png)
@@ -247,7 +247,7 @@ namespace myGame {
 		}  
 	}
 }</pre>
-+ CCFlyAction类  
++ CCFlyAction类   
 飞碟的飞行动作，利用deltaTime改变飞碟的位置，当飞碟飞出视界时把它回收
 <pre>using System.Collections;
 using System.Collections.Generic;
@@ -293,7 +293,7 @@ namespace myGame{
 
 	}
 }</pre>
-+ CCDisappear类  
++ CCDisappear类   
 飞碟的击毁动作，飞碟击毁时让ScoreRecorder类加相应分数
 <pre>using System.Collections;
 using System.Collections.Generic;
@@ -341,7 +341,7 @@ namespace myGame{
 	
 	}
 }</pre>
-+ ScoreRecorder类  
++ ScoreRecorder类   
 记录分数和轮数的类,在视界中生成分数和轮数的显示框。
 <pre>using System.Collections;
 using System.Collections.Generic;
@@ -392,7 +392,7 @@ namespace myGame{
 
 	}
 }</pre>
-+ SceneController类  
++ SceneController类   
 场记。因为这次只有一个场景，所以我没有写导演类，这就导致了部分导演负责的功能交由场记执行。这在一定程度上破坏了结构，也让我在编写场记的代码时混淆了它与其它的一些功能，陷入了混乱之中。以后一定不能再偷懒不写导演类了，会让代码结构变得混乱不说，也给debug带来了一定难度。
 <pre>using System.Collections;
 using System.Collections.Generic;
@@ -469,6 +469,7 @@ namespace myGame{
 
 		private void flyDisk(){
 			GameObject disk = diskFactory.getDisk(scoreRecorder.getRound());
+			//飞碟从固定位置飞出
 			disk.transform.position = new Vector3 (-12, -4, 0); 
 			actionManager.addFlyAction (disk);
 		}
